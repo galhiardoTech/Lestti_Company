@@ -1,0 +1,65 @@
+/* Cores da marca Lestti Company */
+:root {
+  --lestti-blue: #0062FF;
+  --lestti-orange: #FF8C00;
+  --lestti-dark: #1F2937;
+  --ice-blue: #F0F4F8;
+  --pure-white: #FFFFFF;
+  --action-red: #EF4444;
+  --lestti-cyan: #00C6FF;
+  --lestti-yellow: #FFB700;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  color: var(--lestti-dark);
+  background-color: var(--pure-white);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Estilos globais para links */
+a {
+  color: var(--lestti-blue);
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--lestti-orange);
+}
+
+/* Ajustes para telas muito pequenas */
+@media (max-width: 400px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 300px) {
+  body {
+    font-size: 13px;
+  }
+  
+  * {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+}

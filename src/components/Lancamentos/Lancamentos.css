@@ -1,0 +1,222 @@
+.lancamentos {
+  padding: 5rem 1rem;
+  background: linear-gradient(135deg, #0A0E1A 0%, #1A1F2E 100%);
+  color: #FFFFFF;
+}
+
+.lancamentos-banner {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(139, 92, 246, 0.15));
+  border-radius: 20px;
+  padding: 4rem 2rem;
+  text-align: center;
+  border: 2px solid rgba(16, 185, 129, 0.3);
+  position: relative;
+  overflow: hidden;
+  min-height: 400px;
+}
+
+.banner-background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.lancamentos-banner::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+}
+
+.banner-badge {
+  display: inline-block;
+  background: #10B981;
+  color: #FFFFFF;
+  padding: 0.5rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 800;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+}
+
+.banner-content h3 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 1.5rem;
+  color: #FFFFFF;
+}
+
+.banner-content p {
+  font-size: 1.2rem;
+  color: #9CA3AF;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.banner-btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: #10B981;
+  color: #0A0E1A;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+}
+
+.banner-btn:hover {
+  background: #34D399;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 30px rgba(16, 185, 129, 0.6);
+}
+
+/* ============================================
+   TELAS MUITO PEQUENAS - 300px a 400px
+   ============================================ */
+
+@media (max-width: 400px) {
+  .lancamentos {
+    padding: 3rem 0.75rem;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    color: #FFFFFF;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    color: #9CA3AF;
+    font-weight: 500;
+  }
+
+  .lancamentos-banner {
+    padding: 2.5rem 1.5rem;
+    min-height: 300px;
+    border-radius: 15px;
+  }
+
+  .banner-badge {
+    padding: 0.4rem 1.25rem;
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 1.5rem;
+  }
+
+  .banner-content h3 {
+    font-size: 1.75rem;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+  }
+
+  .banner-content p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .banner-btn {
+    padding: 0.85rem 2rem;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+  }
+}
+
+@media (max-width: 300px) {
+  .lancamentos {
+    padding: 2.5rem 0.5rem;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .lancamentos-banner {
+    padding: 2rem 1rem;
+    min-height: 280px;
+  }
+
+  .banner-badge {
+    padding: 0.35rem 1rem;
+    font-size: 0.65rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .banner-content h3 {
+    font-size: 1.5rem;
+    letter-spacing: 1.5px;
+  }
+
+  .banner-content p {
+    font-size: 0.9rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .banner-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+  }
+}
+
+@media (min-width: 768px) {
+  .lancamentos {
+    padding: 6rem 2rem;
+  }
+
+  .lancamentos-banner {
+    padding: 5rem 3rem;
+  }
+
+  .banner-content h3 {
+    font-size: 3.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .banner-content h3 {
+    font-size: 4rem;
+  }
+}

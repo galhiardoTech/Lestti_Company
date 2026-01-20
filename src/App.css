@@ -1,0 +1,9 @@
+.app {
+  min-height: 100vh;
+  background: #0A0E1A;
+}
+
+/* Scroll suave entre seções */
+html {
+  scroll-behavior: smooth;
+}
