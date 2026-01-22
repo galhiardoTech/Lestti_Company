@@ -2,6 +2,12 @@
   padding: 5rem 1rem;
   background: #0A0E1A;
   color: #FFFFFF;
+  display: block;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  clear: both;
 }
 
 .colecoes-grid {

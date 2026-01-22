@@ -1,10 +1,13 @@
 import './Colecoes.css';
+import colecao1 from '../../assets/fotosFiness/images (1).jpg';
+import colecao2 from '../../assets/fotosFiness/images.jpg';
+import colecao3 from '../../assets/fotosFiness/Moda-Fitness-2024-Imagem-Youfit-Aju.jpg';
 
 const Colecoes = () => {
   const colecoes = [
-    { id: 1, nome: 'PERFORMANCE', descricao: 'Para treinos intensos', imagem: 'https://picsum.photos/600/400?random=100' },
-    { id: 2, nome: 'ELITE', descricao: 'Linha premium exclusiva', imagem: 'https://picsum.photos/600/400?random=200' },
-    { id: 3, nome: 'ESSENTIAL', descricao: 'Essenciais do dia a dia', imagem: 'https://picsum.photos/600/400?random=300' }
+    { id: 1, nome: 'PERFORMANCE', descricao: 'Para treinos intensos', imagem: colecao1 },
+    { id: 2, nome: 'ELITE', descricao: 'Linha premium exclusiva', imagem: colecao2 },
+    { id: 3, nome: 'ESSENTIAL', descricao: 'Essenciais do dia a dia', imagem: colecao3 }
   ];
 
   return (

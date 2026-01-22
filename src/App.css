@@ -1,9 +1,29 @@
 .app {
   min-height: 100vh;
   background: #0A0E1A;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Garantir que todas as seções sejam blocos separados */
+section {
+  display: block;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 /* Scroll suave entre seções */
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
 }

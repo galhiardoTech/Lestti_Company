@@ -5,19 +5,20 @@ const Menu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Fechar menu ao clicar fora
+  // Fecha o menu ao clicar fora ou rolar
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (isMenuOpen && !event.target.closest('.menu-container') && !event.target.closest('.menu-toggle')) {
-        setIsMenuOpen(false);
+      // Se clicar no overlay ou fora dos items, fecha
+      if (isMenuOpen && !event.target.closest('.menu-items') && !event.target.closest('.menu-toggle')) {
+        closeMenu();
       }
     };
 
-    // Detectar scroll para mudar estilo do menu
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
 
+    // Usamos mousedown para detectar clique fora mais rápido
     document.addEventListener('mousedown', handleClickOutside);
     window.addEventListener('scroll', handleScroll);
 
@@ -27,31 +28,31 @@ const Menu = () => {
     };
   }, [isMenuOpen]);
 
+  // Função para abrir/fechar
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-    // Prevenir scroll do body quando menu está aberto
-    if (!isMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
+    // Trava o scroll do corpo do site quando o menu está aberto no mobile
+    document.body.style.overflow = !isMenuOpen ? 'hidden' : '';
   };
 
+  // Função para forçar fechamento
   const closeMenu = () => {
     setIsMenuOpen(false);
     document.body.style.overflow = '';
   };
 
+  // Navegação suave com fechamento do menu
   const handleNavClick = (e, targetId) => {
     e.preventDefault();
     closeMenu();
+    const element = document.querySelector(targetId);
     
-    const targetElement = document.querySelector(targetId);
-    if (targetElement) {
-      const menuHeight = document.querySelector('.menu')?.offsetHeight || 100;
-      const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = targetPosition - menuHeight;
-
+    if (element) {
+      // Calcula altura do menu para compensar o scroll
+      const menuHeight = document.querySelector('.menu')?.offsetHeight || 80;
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - menuHeight;
+      
       window.scrollTo({
         top: offsetPosition,
         behavior: 'smooth'
@@ -60,83 +61,63 @@ const Menu = () => {
   };
 
   return (
-    <nav className={`menu ${isScrolled ? 'scrolled' : ''}`} id="menu">
+    <nav className={`menu ${isScrolled ? 'scrolled' : ''}`}>
+      {/* Overlay Escuro (Fundo) - Só aparece no Mobile */}
       <div 
-        className={`menu-overlay ${isMenuOpen ? 'active' : ''}`}
+        className={`menu-overlay ${isMenuOpen ? 'active' : ''}`} 
         onClick={closeMenu}
-        aria-hidden="true"
       ></div>
+      
       <div className="menu-container">
-        <div className="menu-header">
-          <a 
-            href="#inicio" 
-            className="menu-logo" 
-            onClick={(e) => handleNavClick(e, '#inicio')}
-          >
-            <img src="/logo_lestti_company_branca.svg" alt="Logo Lestti Company" />
+        {/* Topo: Logo + Botão Hamburger */}
+        <div className="menu-top-bar">
+          <a href="#inicio" className="menu-logo" onClick={(e) => handleNavClick(e, '#inicio')}>
+            {/* Certifique-se que o caminho da imagem está correto na sua pasta public */}
+            <img src="/logo_lestti_company_branca.svg" alt="Lestti Company" />
           </a>
+
           <button 
-            className="menu-toggle"
+            className="menu-toggle" 
             onClick={toggleMenu}
-            aria-label={isMenuOpen ? 'Fechar menu' : 'Abrir menu'}
+            aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
             aria-expanded={isMenuOpen}
-            aria-controls="menu-items"
           >
             <span className={`hamburger ${isMenuOpen ? 'open' : ''}`}>
-              <span></span>
-              <span></span>
-              <span></span>
+              <span></span><span></span><span></span>
             </span>
           </button>
         </div>
-        <hr className="menu-divider" />
-        <div 
-          id="menu-items"
-          className={`menu-items ${isMenuOpen ? 'open' : ''}`}
-        >
-          <a 
-            href="#inicio" 
-            onClick={(e) => handleNavClick(e, '#inicio')} 
-            className="menu-link"
-          >
-            <span>Início</span>
+
+        {/* Linha Divisória (Aparece apenas no Desktop via CSS) */}
+        <div className="menu-divider"></div>
+
+        {/* LINKS DE NAVEGAÇÃO 
+           No Mobile: position: fixed (Sidebar)
+           No Desktop: position: static (Flex Row)
+        */}
+        <div className={`menu-items ${isMenuOpen ? 'open' : ''}`}>
+          <a href="#inicio" className="menu-link default" onClick={(e) => handleNavClick(e, '#inicio')}>
+            INÍCIO
           </a>
-          <a 
-            href="#produtos" 
-            onClick={(e) => handleNavClick(e, '#produtos')} 
-            className="menu-link highlight"
-          >
-            <span>Produtos</span>
+          
+          <a href="#produtos" className="menu-link green-btn" onClick={(e) => handleNavClick(e, '#produtos')}>
+            PRODUTOS
           </a>
-          <a 
-            href="#colecoes" 
-            onClick={(e) => handleNavClick(e, '#colecoes')} 
-            className="menu-link"
-          >
-            <span>Coleções</span>
+          
+          <a href="#colecoes" className="menu-link default" onClick={(e) => handleNavClick(e, '#colecoes')}>
+            COLEÇÕES
           </a>
-          <a 
-            href="#lancamentos" 
-            onClick={(e) => handleNavClick(e, '#lancamentos')} 
-            className="menu-link new"
-          >
-            <span>Lançamentos</span>
-            <span className="badge">Novo</span>
+          
+          <a href="#lancamentos" className="menu-link default" onClick={(e) => handleNavClick(e, '#lancamentos')}>
+            LANÇAMENTOS <span className="badge green">NOVO</span>
           </a>
-          <a 
-            href="#combos" 
-            onClick={(e) => handleNavClick(e, '#combos')} 
-            className="menu-link cta"
-          >
-            <span>Combos</span>
-            <span className="badge">Oferta</span>
+          
+          <a href="#combos" className="menu-link purple-btn" onClick={(e) => handleNavClick(e, '#combos')}>
+            COMBOS <span className="badge transparent">OFERTA</span>
           </a>
-          <a 
-            href="#contato" 
-            onClick={(e) => handleNavClick(e, '#contato')} 
-            className="menu-link contact"
-          >
-            <span>Contato</span>
+          
+          <a href="#contato" className="menu-link green-btn" onClick={(e) => handleNavClick(e, '#contato')}>
+            CONTATO
           </a>
         </div>
       </div>

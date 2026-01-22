@@ -1,4 +1,5 @@
 import './Lancamentos.css';
+import lancamentoImage from '../../assets/fotosFiness/primavera-verao-tendencias-moda-fitness.jpg';
 
 const Lancamentos = () => {
   return (
@@ -10,7 +11,7 @@ const Lancamentos = () => {
         </div>
         <div className="lancamentos-banner">
           <img 
-            src="https://picsum.photos/1200/600?random=500" 
+            src={lancamentoImage} 
             alt="Lançamentos"
             className="banner-background-image"
           />
