@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import './Contato.css';
+import { Send } from 'lucide-react';
+import config from '../../data/config.json';
 
 const Contato = () => {
   const [formData, setFormData] = useState({
@@ -10,7 +12,7 @@ const Contato = () => {
     mensagem: ''
   });
 
-  const phoneNumber = '5511950869006';
+  const phoneNumber = config.whatsapp.numero;
 
   const handleChange = (e) => {
     setFormData({
@@ -39,27 +41,27 @@ const Contato = () => {
     const telefoneFormatado = formatPhoneNumber(formData.telefone);
     
     // Criar mensagem personalizada
-    let mensagem = `👋 *Olá, Lestti Company!*\n\n`;
+    let mensagem = `*Olá, Lestti Company!*\n\n`;
     mensagem += `Meu nome é *${formData.nome}*\n\n`;
     
     if (formData.email) {
-      mensagem += `📧 *Email:* ${formData.email}\n`;
+      mensagem += `*Email:* ${formData.email}\n`;
     }
     
     if (formData.telefone) {
-      mensagem += `📱 *WhatsApp:* ${formData.telefone}\n\n`;
+      mensagem += `*WhatsApp:* ${formData.telefone}\n\n`;
     }
     
     if (formData.interesse) {
-      mensagem += `🎯 *Tenho interesse em:* ${formData.interesse}\n\n`;
+      mensagem += `*Tenho interesse em:* ${formData.interesse}\n\n`;
     }
     
     if (formData.mensagem) {
-      mensagem += `💬 *Mensagem:*\n${formData.mensagem}\n\n`;
+      mensagem += `*Mensagem:*\n${formData.mensagem}\n\n`;
     }
     
-    mensagem += `━━━━━━━━━━━━━━━━━━━━\n`;
-    mensagem += `🚀 *Quero evoluir meu estilo!*`;
+    mensagem += `--------------------------------\n`;
+    mensagem += `*Quero evoluir meu estilo!*`;
     
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(mensagem)}`;
     
@@ -88,11 +90,11 @@ const Contato = () => {
             <p>Estamos prontos para ajudar você a encontrar o outfit perfeito para seus treinos.</p>
             <div className="contato-item">
               <strong>WhatsApp:</strong>
-              <a href={`https://wa.me/${phoneNumber}`} target="_blank" rel="noopener noreferrer">(11) 95086-9006</a>
+              <a href={`https://wa.me/${phoneNumber}`} target="_blank" rel="noopener noreferrer">{config.whatsapp.formatoExibicao}</a>
             </div>
             <div className="contato-item">
               <strong>Email:</strong>
-              <a href="mailto:contato@lestti.com.br">contato@lestti.com.br</a>
+              <a href={`mailto:${config.email}`}>{config.email}</a>
             </div>
           </div>
           <form className="contato-form" onSubmit={handleSubmit}>
@@ -146,7 +148,8 @@ const Contato = () => {
               required
             ></textarea>
             <button type="submit" className="form-btn">
-              📱 ENVIAR VIA WHATSAPP
+              <Send size={18} />
+              <span>ENVIAR VIA WHATSAPP</span>
             </button>
           </form>
         </div>

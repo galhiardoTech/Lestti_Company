@@ -191,12 +191,14 @@
   max-width: 320px;
   height: 100vh;
   background: linear-gradient(180deg, var(--lestti-dark) 0%, var(--dark-gray) 100%);
-  padding: 6rem 1.5rem 2rem; /* Espaço no topo para não ficar atrás do logo */
-  gap: 1rem;
+  padding: 5rem 1.5rem 1.5rem; /* Reduzido padding para caber todos os itens */
+  gap: 0.75rem; /* Reduzido gap para economizar espaço */
   z-index: 1000;
   border-right: 1px solid rgba(16, 185, 129, 0.3);
   box-shadow: 10px 0 30px rgba(0,0,0,0.5);
-  overflow-y: auto;
+  overflow-y: hidden; /* Removido scroll vertical */
+  overflow-x: hidden;
+  justify-content: flex-start; /* Alinha itens no topo */
 
   /* Animação Slide-In */
   transform: translateX(-100%);
@@ -216,12 +218,13 @@
   color: var(--pure-white);
   text-decoration: none;
   font-weight: 600;
-  font-size: 1rem;
-  padding: 1rem;
+  font-size: 0.95rem; /* Reduzido ligeiramente para economizar espaço */
+  padding: 0.85rem 1rem; /* Reduzido padding vertical */
   border-radius: 8px;
   transition: all 0.3s ease;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.05);
+  flex-shrink: 0; /* Evita que os itens encolham */
 }
 
 .menu-link:hover {

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './Hero.css';
+import { Zap, Target, Dumbbell } from 'lucide-react';
 import heroImage from '../../assets/fotosFiness/mulher-com-conjunto-de-moda-fitness-branco.webp';
 
 const Hero = () => {
@@ -8,6 +9,21 @@ const Hero = () => {
   useEffect(() => {
     setIsVisible(true);
   }, []);
+
+  // Função para scroll suave até a seção
+  const handleScrollTo = (targetId) => {
+    const element = document.querySelector(targetId);
+    if (element) {
+      const menuHeight = document.querySelector('.menu')?.offsetHeight || 80;
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - menuHeight;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   return (
     <section id="inicio" className={`hero ${isVisible ? 'visible' : ''}`}>
@@ -26,25 +42,39 @@ const Hero = () => {
           {/* Indicadores de Benefícios */}
           <div className="hero-features">
             <div className="feature-item">
-              <span className="feature-icon">⚡</span>
+              <Zap className="feature-icon" size={20} />
               <span className="feature-text">Tecnologia Dry-Fit</span>
             </div>
             <div className="feature-item">
-              <span className="feature-icon">🎯</span>
+              <Target className="feature-icon" size={20} />
               <span className="feature-text">Conforto Extremo</span>
             </div>
             <div className="feature-item">
-              <span className="feature-icon">💪</span>
+              <Dumbbell className="feature-icon" size={20} />
               <span className="feature-text">Performance Máxima</span>
             </div>
           </div>
 
           <div className="hero-cta">
-            <a href="#produtos" className="btn btn-primary">
+            <a 
+              href="#produtos" 
+              className="btn btn-primary"
+              onClick={(e) => {
+                e.preventDefault();
+                handleScrollTo('#produtos');
+              }}
+            >
               <span>EXPLORAR PRODUTOS</span>
               <span className="btn-arrow">→</span>
             </a>
-            <a href="#combos" className="btn btn-secondary">
+            <a 
+              href="#combos" 
+              className="btn btn-secondary"
+              onClick={(e) => {
+                e.preventDefault();
+                handleScrollTo('#combos');
+              }}
+            >
               <span>VER COMBOS</span>
               <span className="btn-arrow">→</span>
             </a>
@@ -53,15 +83,15 @@ const Hero = () => {
           {/* Estatísticas Sociais */}
           <div className="hero-stats">
             <div className="stat-item">
-              <span className="stat-number">5000+</span>
+              <span className="stat-number">100+</span>
               <span className="stat-label">Clientes Satisfeitos</span>
             </div>
             <div className="stat-item">
-              <span className="stat-number">50+</span>
+              <span className="stat-number">5+</span>
               <span className="stat-label">Produtos Premium</span>
             </div>
             <div className="stat-item">
-              <span className="stat-number">4.9★</span>
+              <span className="stat-number">5.0★</span>
               <span className="stat-label">Avaliação Média</span>
             </div>
           </div>
@@ -79,11 +109,6 @@ const Hero = () => {
           <div className="hero-badge">
             <span>NOVO</span>
           </div>
-
-          {/* Elementos decorativos */}
-          <div className="hero-decoration hero-decoration-1"></div>
-          <div className="hero-decoration hero-decoration-2"></div>
-          <div className="hero-decoration hero-decoration-3"></div>
         </div>
       </div>
 

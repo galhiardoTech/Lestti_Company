@@ -99,9 +99,12 @@
   text-transform: uppercase;
   letter-spacing: 2px;
   text-decoration: none;
+  border: none;
   border-radius: 10px;
   transition: all 0.3s ease;
   box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+  cursor: pointer;
+  font-family: inherit;
 }
 
 .banner-btn:hover {

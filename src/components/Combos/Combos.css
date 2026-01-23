@@ -138,8 +138,10 @@
 }
 
 .popular-icon {
-  font-size: 1rem;
+  width: 16px;
+  height: 16px;
   animation: rotate-star 3s linear infinite;
+  flex-shrink: 0;
 }
 
 @keyframes rotate-star {

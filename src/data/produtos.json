@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "nome": "Conjunto top/calça Run ",
+    "preco": "R$ 99,90",
+    "imagem": "1200x1200--6--vtp06is6pe.webp",
+    "novo": true
+  },
+  {
+    "id": 2,
+    "nome": "Conjunto top/shorts Run",
+    "preco": "R$ 84,90",
+    "imagem": "180_calca_legging_ausare_cal0137_307_1_3cc24e6c6c1d3c2ec130987cc82860ac.webp",
+    "novo": false
+  },
+  {
+    "id": 3,
+    "nome": "Legging Empina Bumbum",
+    "preco": "R$ 49,90",
+    "imagem": "180_calca_legging_ausare_cal0157_311_1_d2f4a9b1e4589ec9c9ff589cea0c45ba.webp",
+    "novo": false
+  },
+  {
+    "id": 4,
+    "nome": "Macacão curto Run",
+    "preco": "R$ 69,90",
+    "imagem": "306525.webp",
+    "novo": true
+  },
+  {
+    "id": 5,
+    "nome": "Macacão longo Run",
+    "preco": "R$ 79,90",
+    "imagem": "380ef9e12a5d270bf1dbab37afc69e7b_f3190348-e15e-4a5c-b963-8dd6fbc8259e.webp",
+    "novo": false
+  }
+]

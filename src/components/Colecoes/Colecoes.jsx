@@ -1,14 +1,30 @@
 import './Colecoes.css';
+import config from '../../data/config.json';
 import colecao1 from '../../assets/fotosFiness/images (1).jpg';
 import colecao2 from '../../assets/fotosFiness/images.jpg';
 import colecao3 from '../../assets/fotosFiness/Moda-Fitness-2024-Imagem-Youfit-Aju.jpg';
 
 const Colecoes = () => {
+  const phoneNumber = config.whatsapp.numero;
+  
   const colecoes = [
     { id: 1, nome: 'PERFORMANCE', descricao: 'Para treinos intensos', imagem: colecao1 },
     { id: 2, nome: 'ELITE', descricao: 'Linha premium exclusiva', imagem: colecao2 },
     { id: 3, nome: 'ESSENTIAL', descricao: 'Essenciais do dia a dia', imagem: colecao3 }
   ];
+
+  // Função para gerar mensagem do WhatsApp para coleção
+  const handleWhatsAppColecao = (colecao) => {
+    let mensagem = `*Olá, Lestti Company!*\n\n`;
+    mensagem += `Tenho interesse na coleção:\n\n`;
+    mensagem += `*Coleção:* ${colecao.nome}\n`;
+    mensagem += `*Descrição:* ${colecao.descricao}\n`;
+    mensagem += `\n--------------------------------\n`;
+    mensagem += `*Quero ver os produtos desta coleção!*`;
+    
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(mensagem)}`;
+    window.open(whatsappUrl, '_blank');
+  };
 
   return (
     <section id="colecoes" className="colecoes">
@@ -24,7 +40,12 @@ const Colecoes = () => {
               <div className="colecao-content">
                 <h3 className="colecao-nome">{colecao.nome}</h3>
                 <p className="colecao-descricao">{colecao.descricao}</p>
-                <a href="#produtos" className="colecao-btn">VER COLECÃO</a>
+                <button 
+                  className="colecao-btn"
+                  onClick={() => handleWhatsAppColecao(colecao)}
+                >
+                  VER COLECÃO
+                </button>
               </div>
             </div>
           ))}

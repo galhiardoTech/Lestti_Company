@@ -1,8 +1,8 @@
 import './WhatsAppButton.css';
+import config from '../../data/config.json';
 
 const WhatsAppButton = () => {
-  // Número do WhatsApp (formato: 5511999999999 - sem espaços, com código do país)
-  const phoneNumber = '5511950869006';
+  const phoneNumber = config.whatsapp.numero;
   const message = encodeURIComponent('Olá! Gostaria de saber mais sobre os serviços da Lestti Company');
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 

@@ -119,6 +119,10 @@
   transition: all 0.3s ease;
   font-size: 1rem;
   box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .form-btn:hover {

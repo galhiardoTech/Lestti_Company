@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import './Produtos.css';
+import produtosData from '../../data/produtos.json';
+import config from '../../data/config.json';
 import produto1 from '../../assets/fotosFiness/1200x1200--6--vtp06is6pe.webp';
 import produto2 from '../../assets/fotosFiness/180_calca_legging_ausare_cal0137_307_1_3cc24e6c6c1d3c2ec130987cc82860ac.webp';
 import produto3 from '../../assets/fotosFiness/180_calca_legging_ausare_cal0157_311_1_d2f4a9b1e4589ec9c9ff589cea0c45ba.webp';
@@ -7,17 +9,41 @@ import produto4 from '../../assets/fotosFiness/306525.webp';
 import produto5 from '../../assets/fotosFiness/380ef9e12a5d270bf1dbab37afc69e7b_f3190348-e15e-4a5c-b963-8dd6fbc8259e.webp';
 import produto6 from '../../assets/fotosFiness/9a0094050c.webp';
 
+// Mapeamento de imagens
+const imagensMap = {
+  '1200x1200--6--vtp06is6pe.webp': produto1,
+  '180_calca_legging_ausare_cal0137_307_1_3cc24e6c6c1d3c2ec130987cc82860ac.webp': produto2,
+  '180_calca_legging_ausare_cal0157_311_1_d2f4a9b1e4589ec9c9ff589cea0c45ba.webp': produto3,
+  '306525.webp': produto4,
+  '380ef9e12a5d270bf1dbab37afc69e7b_f3190348-e15e-4a5c-b963-8dd6fbc8259e.webp': produto5,
+  '9a0094050c.webp': produto6,
+};
+
 const Produtos = () => {
   const [selectedImage, setSelectedImage] = useState(null);
+  const phoneNumber = config.whatsapp.numero;
 
-  const produtos = [
-    { id: 1, nome: 'Camiseta Performance', preco: 'R$ 89,90', imagem: produto1, novo: false },
-    { id: 2, nome: 'Shorts Training', preco: 'R$ 79,90', imagem: produto2, novo: true },
-    { id: 3, nome: 'Legging Premium', preco: 'R$ 129,90', imagem: produto3, novo: false },
-    { id: 4, nome: 'Top Esportivo', preco: 'R$ 69,90', imagem: produto4, novo: true },
-    { id: 5, nome: 'Moletom Elite', preco: 'R$ 159,90', imagem: produto5, novo: false },
-    { id: 6, nome: 'Calça Jogger', preco: 'R$ 119,90', imagem: produto6, novo: false },
-  ];
+  // Mapear produtos do JSON com as imagens importadas
+  const produtos = produtosData.map(produto => ({
+    ...produto,
+    imagem: imagensMap[produto.imagem]
+  }));
+
+  // Função para gerar mensagem do WhatsApp para produto
+  const handleWhatsAppProduto = (produto) => {
+    let mensagem = `*Olá, Lestti Company!*\n\n`;
+    mensagem += `Tenho interesse no produto:\n\n`;
+    mensagem += `*Produto:* ${produto.nome}\n`;
+    mensagem += `*Preço:* ${produto.preco}\n`;
+    if (produto.novo) {
+      mensagem += `*Status:* NOVO\n`;
+    }
+    mensagem += `\n--------------------------------\n`;
+    mensagem += `*Quero garantir este produto!*`;
+    
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(mensagem)}`;
+    window.open(whatsappUrl, '_blank');
+  };
 
   useEffect(() => {
     const handleEscape = (e) => {
@@ -91,7 +117,12 @@ const Produtos = () => {
               <div className="produto-info">
                 <h3 className="produto-nome">{produto.nome}</h3>
                 <p className="produto-preco">{produto.preco}</p>
-                <button className="produto-btn">VER DETALHES</button>
+                <button 
+                  className="produto-btn"
+                  onClick={() => handleWhatsAppProduto(produto)}
+                >
+                  VER DETALHES
+                </button>
               </div>
             </div>
           ))}

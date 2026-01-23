@@ -1,44 +1,49 @@
 import './Combos.css';
+import { Star } from 'lucide-react';
+import combosData from '../../data/combos.json';
+import config from '../../data/config.json';
 import combo1Image from '../../assets/fotosFiness/1200x1200--6--vtp06is6pe.webp';
 import combo2Image from '../../assets/fotosFiness/306525.webp';
 import combo3Image from '../../assets/fotosFiness/380ef9e12a5d270bf1dbab37afc69e7b_f3190348-e15e-4a5c-b963-8dd6fbc8259e.webp';
 
+// Mapeamento de imagens
+const imagensMap = {
+  '1200x1200--6--vtp06is6pe.webp': combo1Image,
+  '306525.webp': combo2Image,
+  '380ef9e12a5d270bf1dbab37afc69e7b_f3190348-e15e-4a5c-b963-8dd6fbc8259e.webp': combo3Image,
+};
+
 const Combos = () => {
-  const combos = [
-    {
-      id: 1,
-      nome: 'COMBO ELITE',
-      itens: ['Camiseta Performance', 'Shorts Training', 'Legging Premium'],
-      preco: 'R$ 249,90',
-      precoOriginal: 'R$ 357,00',
-      desconto: '30% OFF',
-      popular: true,
-      imagem: combo1Image,
-      economia: 'Economize R$ 107,10'
-    },
-    {
-      id: 2,
-      nome: 'COMBO POWER',
-      itens: ['Top Esportivo', 'Legging Premium', 'Moletom Elite'],
-      preco: 'R$ 299,90',
-      precoOriginal: 'R$ 399,70',
-      desconto: '25% OFF',
-      popular: false,
-      imagem: combo2Image,
-      economia: 'Economize R$ 99,80'
-    },
-    {
-      id: 3,
-      nome: 'COMBO COMPLETO',
-      itens: ['Kit Completo 5 Peças', 'Acessórios Premium', 'Garantia Estendida'],
-      preco: 'R$ 449,90',
-      precoOriginal: 'R$ 692,30',
-      desconto: '35% OFF',
-      popular: false,
-      imagem: combo3Image,
-      economia: 'Economize R$ 242,40'
+  const phoneNumber = config.whatsapp.numero;
+
+  // Mapear combos do JSON com as imagens importadas
+  const combos = combosData.map(combo => ({
+    ...combo,
+    imagem: imagensMap[combo.imagem]
+  }));
+
+  // Função para gerar mensagem do WhatsApp para combo
+  const handleWhatsAppCombo = (combo) => {
+    let mensagem = `*Olá, Lestti Company!*\n\n`;
+    mensagem += `Tenho interesse no combo:\n\n`;
+    mensagem += `*Combo:* ${combo.nome}\n`;
+    mensagem += `*Preço:* ${combo.preco}\n`;
+    mensagem += `*De:* ${combo.precoOriginal}\n`;
+    mensagem += `*Desconto:* ${combo.desconto}\n`;
+    mensagem += `*${combo.economia}*\n\n`;
+    mensagem += `*Itens incluídos:*\n`;
+    combo.itens.forEach(item => {
+      mensagem += `- ${item}\n`;
+    });
+    if (combo.popular) {
+      mensagem += `\n*MAIS POPULAR*\n`;
     }
-  ];
+    mensagem += `\n--------------------------------\n`;
+    mensagem += `*Quero garantir este combo!*`;
+    
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(mensagem)}`;
+    window.open(whatsappUrl, '_blank');
+  };
 
   return (
     <section id="combos" className="combos">
@@ -52,7 +57,7 @@ const Combos = () => {
             <div key={combo.id} className={`combo-card ${combo.popular ? 'popular' : ''}`}>
               {combo.popular && (
                 <div className="combo-popular">
-                  <span className="popular-icon">⭐</span>
+                  <Star className="popular-icon" size={16} fill="currentColor" />
                   <span>MAIS POPULAR</span>
                 </div>
               )}
@@ -84,7 +89,10 @@ const Combos = () => {
                   <div className="combo-preco-original">{combo.precoOriginal}</div>
                   <div className="combo-preco">{combo.preco}</div>
                 </div>
-                <button className="combo-btn">
+                <button 
+                  className="combo-btn"
+                  onClick={() => handleWhatsAppCombo(combo)}
+                >
                   <span>GARANTIR AGORA</span>
                   <svg className="btn-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
