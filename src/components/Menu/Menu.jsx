@@ -119,6 +119,7 @@ const Menu = () => {
           <a href="#contato" className="menu-link green-btn" onClick={(e) => handleNavClick(e, '#contato')}>
             CONTATO
           </a>
+          
         </div>
       </div>
     </nav>

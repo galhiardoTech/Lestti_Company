@@ -1,25 +1,21 @@
 import './App.css'
-import Menu from './components/Menu/Menu'
-import Hero from './components/Hero/Hero'
-import Produtos from './components/Produtos/Produtos'
-import Colecoes from './components/Colecoes/Colecoes'
-import Lancamentos from './components/Lancamentos/Lancamentos'
-import Combos from './components/Combos/Combos'
-import Contato from './components/Contato/Contato'
-import WhatsAppButton from './components/WhatsAppButton/WhatsAppButton'
+import Home from './screens/home.jsx'
+import { BrowserRouter, Routes, Route } from "react-router";
+import TelaProduto from './screens/TelaProduto.jsx';
+import { useParams } from "react-router";
 
 function App() {
+  let params = useParams();
   return (
     <div className="app">
-      <Menu />
-      <Hero />
-      <Produtos />
-      <Colecoes />
-      <Lancamentos />
-      <Combos />
-      <Contato />
-      <WhatsAppButton />
-    </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />,
+          <Route path='/produto/:id' element={<TelaProduto/>} />
+        </Routes>
+      </BrowserRouter>,
+
+       </div>
   )
 }
 

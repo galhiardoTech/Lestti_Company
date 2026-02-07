@@ -2,16 +2,17 @@ import { useState, useEffect } from 'react';
 import './Produtos.css';
 import produtosData from '../../data/produtos.json';
 import config from '../../data/config.json';
-import produto1 from '../../assets/fotosFiness/1200x1200--6--vtp06is6pe.webp';
+import produto1 from '../../assets/fotosFiness/conjuntomarrom1.png';
 import produto2 from '../../assets/fotosFiness/180_calca_legging_ausare_cal0137_307_1_3cc24e6c6c1d3c2ec130987cc82860ac.webp';
 import produto3 from '../../assets/fotosFiness/180_calca_legging_ausare_cal0157_311_1_d2f4a9b1e4589ec9c9ff589cea0c45ba.webp';
 import produto4 from '../../assets/fotosFiness/306525.webp';
 import produto5 from '../../assets/fotosFiness/380ef9e12a5d270bf1dbab37afc69e7b_f3190348-e15e-4a5c-b963-8dd6fbc8259e.webp';
 import produto6 from '../../assets/fotosFiness/9a0094050c.webp';
+import { useNavigate } from 'react-router-dom';
 
 // Mapeamento de imagens
 const imagensMap = {
-  '1200x1200--6--vtp06is6pe.webp': produto1,
+  'conjuntomarrom1.png': produto1,
   '180_calca_legging_ausare_cal0137_307_1_3cc24e6c6c1d3c2ec130987cc82860ac.webp': produto2,
   '180_calca_legging_ausare_cal0157_311_1_d2f4a9b1e4589ec9c9ff589cea0c45ba.webp': produto3,
   '306525.webp': produto4,
@@ -29,21 +30,22 @@ const Produtos = () => {
     imagem: imagensMap[produto.imagem]
   }));
 
+ 
   // Função para gerar mensagem do WhatsApp para produto
-  const handleWhatsAppProduto = (produto) => {
-    let mensagem = `*Olá, Lestti Company!*\n\n`;
-    mensagem += `Tenho interesse no produto:\n\n`;
-    mensagem += `*Produto:* ${produto.nome}\n`;
-    mensagem += `*Preço:* ${produto.preco}\n`;
-    if (produto.novo) {
-      mensagem += `*Status:* NOVO\n`;
-    }
-    mensagem += `\n--------------------------------\n`;
-    mensagem += `*Quero garantir este produto!*`;
+  // const handleWhatsAppProduto = (produto) => {
+  //   let mensagem = `*Olá, Lestti Company!*\n\n`;
+  //   mensagem += `Tenho interesse no produto:\n\n`;
+  //   mensagem += `*Produto:* ${produto.nome}\n`;
+  //   mensagem += `*Preço:* ${produto.preco}\n`;
+  //   if (produto.novo) {
+  //     mensagem += `*Status:* NOVO\n`;
+  //   }
+  //   mensagem += `\n--------------------------------\n`;
+  //   mensagem += `*Quero garantir este produto!*`;
     
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(mensagem)}`;
-    window.open(whatsappUrl, '_blank');
-  };
+  //   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(mensagem)}`;
+  //   window.open(whatsappUrl, '_blank');
+  // };
 
   useEffect(() => {
     const handleEscape = (e) => {
@@ -72,6 +74,13 @@ const Produtos = () => {
   const closeModal = () => {
     setSelectedImage(null);
   };
+const navigate = useNavigate();
+   const changePage = (produtoId) => {
+    alert('Mudando de página para o produto: ' + produtoId);
+    navigate(`/produto/${produtoId}`);
+
+  }
+
 
   return (
     <section id="produtos" className="produtos">
@@ -119,7 +128,11 @@ const Produtos = () => {
                 <p className="produto-preco">{produto.preco}</p>
                 <button 
                   className="produto-btn"
-                  onClick={() => handleWhatsAppProduto(produto)}
+                  onClick={
+                    () => 
+                      changePage(produto.id)
+                  }
+                  // onClick={() => handleWhatsAppProduto(produto)}
                 >
                   VER DETALHES
                 </button>

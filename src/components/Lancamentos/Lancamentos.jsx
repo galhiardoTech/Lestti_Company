@@ -9,7 +9,7 @@ const Lancamentos = () => {
   const handleWhatsAppLancamentos = () => {
     let mensagem = `*Olá, Lestti Company!*\n\n`;
     mensagem += `Tenho interesse em:\n\n`;
-    mensagem += `*Coleção Premium 2024*\n`;
+    mensagem += `*Coleção Premium 2026*\n`;
     mensagem += `Novidades que chegaram para revolucionar seus treinos\n`;
     mensagem += `\n--------------------------------\n`;
     mensagem += `*Quero explorar as novidades!*`;
@@ -33,7 +33,7 @@ const Lancamentos = () => {
           />
           <div className="banner-content">
             <span className="banner-badge">NOVO</span>
-            <h3>COLEÇÃO PREMIUM 2024</h3>
+            <h3>COLEÇÃO PREMIUM 2026</h3>
             <p>Tecnologia de ponta em cada peça. Design exclusivo para quem busca excelência.</p>
             <button 
               className="banner-btn"
