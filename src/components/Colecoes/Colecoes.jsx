@@ -36,7 +36,7 @@ const Colecoes = () => {
         <div className="colecoes-grid">
           {colecoes.map((colecao) => (
             <div key={colecao.id} className="colecao-card">
-              <img src={colecao.imagem} alt={colecao.nome} className="colecao-image" />
+              <img src={colecao.imagem} alt={colecao.nome} loading="lazy" className="colecao-image" />
               <div className="colecao-content">
                 <h3 className="colecao-nome">{colecao.nome}</h3>
                 <p className="colecao-descricao">{colecao.descricao}</p>

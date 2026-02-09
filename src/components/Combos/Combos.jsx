@@ -50,7 +50,7 @@ const Combos = () => {
               )}
               <div className="combo-image-wrapper">
                 <div className="combo-image">
-                  <img src={getImageUrl(combo.imagem)} alt={combo.nome} />
+                  <img src={getImageUrl(combo.imagem)} alt={combo.nome} loading="lazy" />
                 </div>
                 <div className="combo-badge-desconto">
                   <span className="desconto-value">{combo.desconto}</span>

@@ -30,6 +30,7 @@ const Lancamentos = () => {
             src={lancamentoImage} 
             alt="Lançamentos"
             className="banner-background-image"
+            loading='lazy'
           />
           <div className="banner-content">
             <span className="banner-badge">NOVO</span>

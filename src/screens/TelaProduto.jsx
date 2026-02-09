@@ -32,9 +32,7 @@ function TelaProduto() {
     const totalImagens = produto.imagens.length;
     
     const irProxima = () => {
-        if (imagemAtual < totalImagens - 1) {
-            setImagemAtual(imagemAtual + 1);
-        }
+        setImagemAtual((atual) => (atual + 1) % totalImagens);
     };
 
     const irAnterior = () => {
@@ -68,6 +66,7 @@ function TelaProduto() {
                             <img 
                                 src={getImageUrl(produto.imagens[imagemAtual])} 
                                 alt={produto.nome} 
+                                loading='lazy'
                                 className="produto-imagem" 
                                 onError={(e) => {
                                     e.target.onerror = null; 
@@ -79,7 +78,6 @@ function TelaProduto() {
                             <button 
                                 className="carrossel-btn carrossel-btn-anterior"
                                 onClick={irAnterior}
-                                disabled={imagemAtual === 0}
                                 aria-label="Imagem anterior"
                             >
                                 ‹
@@ -87,7 +85,6 @@ function TelaProduto() {
                             <button 
                                 className="carrossel-btn carrossel-btn-proxima"
                                 onClick={irProxima}
-                                disabled={imagemAtual === totalImagens - 1}
                                 aria-label="Próxima imagem"
                             >
                                 ›
