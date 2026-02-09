@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './Hero.css';
 import { Zap, Target, Dumbbell } from 'lucide-react';
-import heroImage from '../../assets/fotosFiness/mulher-com-conjunto-de-moda-fitness-branco.webp';
+import heroImage from '../../assets/fotosLooks/macacaoCurto08.png';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);

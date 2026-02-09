@@ -1,6 +1,6 @@
 import './Lancamentos.css';
 import config from '../../data/config.json';
-import lancamentoImage from '../../assets/fotosFiness/primavera-verao-tendencias-moda-fitness.jpg';
+import lancamentoImage from '../../assets/fotosLooks/topCalca07.png';
 
 const Lancamentos = () => {
   const phoneNumber = config.whatsapp.numero;

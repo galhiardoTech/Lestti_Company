@@ -2,25 +2,12 @@ import './Combos.css';
 import { Star } from 'lucide-react';
 import combosData from '../../data/combos.json';
 import config from '../../data/config.json';
-import combo1Image from '../../assets/fotosFiness/1200x1200--6--vtp06is6pe.webp';
-import combo2Image from '../../assets/fotosFiness/306525.webp';
-import combo3Image from '../../assets/fotosFiness/380ef9e12a5d270bf1dbab37afc69e7b_f3190348-e15e-4a5c-b963-8dd6fbc8259e.webp';
-
-// Mapeamento de imagens
-const imagensMap = {
-  '1200x1200--6--vtp06is6pe.webp': combo1Image,
-  '306525.webp': combo2Image,
-  '380ef9e12a5d270bf1dbab37afc69e7b_f3190348-e15e-4a5c-b963-8dd6fbc8259e.webp': combo3Image,
-};
 
 const Combos = () => {
   const phoneNumber = config.whatsapp.numero;
 
-  // Mapear combos do JSON com as imagens importadas
-  const combos = combosData.map(combo => ({
-    ...combo,
-    imagem: imagensMap[combo.imagem]
-  }));
+  // Gera o caminho correto para imagens dentro de src/assets
+  const getImageUrl = (name) => new URL(`../../assets/fotosCombos/${name}`, import.meta.url).href;
 
   // Função para gerar mensagem do WhatsApp para combo
   const handleWhatsAppCombo = (combo) => {
@@ -53,7 +40,7 @@ const Combos = () => {
           <p className="section-subtitle">Economize com nossos combos especiais</p>
         </div>
         <div className="combos-grid">
-          {combos.map((combo) => (
+          {combosData.map((combo) => (
             <div key={combo.id} className={`combo-card ${combo.popular ? 'popular' : ''}`}>
               {combo.popular && (
                 <div className="combo-popular">
@@ -63,7 +50,7 @@ const Combos = () => {
               )}
               <div className="combo-image-wrapper">
                 <div className="combo-image">
-                  <img src={combo.imagem} alt={combo.nome} />
+                  <img src={getImageUrl(combo.imagem)} alt={combo.nome} />
                 </div>
                 <div className="combo-badge-desconto">
                   <span className="desconto-value">{combo.desconto}</span>

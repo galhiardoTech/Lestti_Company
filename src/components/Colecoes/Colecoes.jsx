@@ -1,8 +1,8 @@
 import './Colecoes.css';
 import config from '../../data/config.json';
-import colecao1 from '../../assets/fotosFiness/images (1).jpg';
-import colecao2 from '../../assets/fotosFiness/images.jpg';
-import colecao3 from '../../assets/fotosFiness/Moda-Fitness-2024-Imagem-Youfit-Aju.jpg';
+import colecao1 from '../../assets/fotosLooks/shorts06.png';
+import colecao2 from '../../assets/fotosLooks/macacaoCurto09.png';
+import colecao3 from '../../assets/fotosLooks/topCalca09.png';
 
 const Colecoes = () => {
   const phoneNumber = config.whatsapp.numero;

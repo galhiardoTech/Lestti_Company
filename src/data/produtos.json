@@ -1,37 +1,94 @@
 [
   {
     "id": 1,
-    "nome": "Conjunto top/calça Run ",
+    "nome": "Conjunto top/calça Run",
     "preco": "R$ 99,90",
-    "imagem": "conjuntomarrom1.png",
+    "capa": "topCalca01.png",
+    "imagens": [
+      "topCalca01.png",
+      "topCalca02.png",
+      "topCalca03.png",
+      "topCalca04.png",
+      "topCalca05.png",
+      "topCalca06.png",
+      "topCalca07.png",
+      "topCalca08.png",
+      "topCalca09.png",
+      "topCalca10.png"
+    ],
     "novo": true
   },
   {
     "id": 2,
     "nome": "Conjunto top/shorts Run",
     "preco": "R$ 84,90",
-    "imagem": "180_calca_legging_ausare_cal0137_307_1_3cc24e6c6c1d3c2ec130987cc82860ac.webp",
+    "capa": "topShorts01.png",
+    "imagens": [
+      "topShorts01.png",
+      "topShorts02.png",
+      "topShorts03.png",
+      "topShorts04.png",
+      "topShorts05.png",
+      "topShorts06.png",
+      "topShorts07.png",
+      "topShorts08.png",
+      "topShorts09.png",
+      "topShorts10.png"
+    ],
     "novo": false
   },
   {
     "id": 3,
     "nome": "Legging Empina Bumbum",
     "preco": "R$ 49,90",
-    "imagem": "180_calca_legging_ausare_cal0157_311_1_d2f4a9b1e4589ec9c9ff589cea0c45ba.webp",
+    "capa": "shorts01.png",
+    "imagens": [
+      "shorts01.png",
+      "shorts02.png",
+      "shorts04.png",
+      "shorts05.png",
+      "shorts06.png",
+      "shorts07.png",
+      "shorts08.png",
+      "shorts09.png"
+    ],
     "novo": false
   },
   {
     "id": 4,
     "nome": "Macacão curto Run",
     "preco": "R$ 69,90",
-    "imagem": "306525.webp",
+    "capa": "macacaoCurto01.png",
+    "imagens": [
+      "macacaoCurto01.png",
+      "macacaoCurto02.png",
+      "macacaoCurto03.png",
+      "macacaoCurto04.png",
+      "macacaoCurto05.png",
+      "macacaoCurto06.png",
+      "macacaoCurto07.png",
+      "macacaoCurto08.png",
+      "macacaoCurto09.png"
+    ],
     "novo": true
   },
   {
     "id": 5,
     "nome": "Macacão longo Run",
     "preco": "R$ 79,90",
-    "imagem": "380ef9e12a5d270bf1dbab37afc69e7b_f3190348-e15e-4a5c-b963-8dd6fbc8259e.webp",
+    "capa": "macacaoLongo01.png",
+    "imagens": [
+      "macacaoLongo01.png",
+      "macacaoLongo02.png",
+      "macacaoLongo03.png",
+      "macacaoLongo04.png",
+      "macacaoLongo05.png",
+      "macacaoLongo06.png",
+      "macacaoLongo07.png",
+      "macacaoLongo08.png",
+      "macacaoLongo09.png",
+      "macacaoLongo10.png"
+    ],
     "novo": false
   }
 ]
