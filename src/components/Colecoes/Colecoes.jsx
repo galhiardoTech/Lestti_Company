@@ -1,16 +1,14 @@
 import './Colecoes.css';
 import config from '../../data/config.json';
-import colecao1 from '../../assets/fotosLooks/shorts06.png';
-import colecao2 from '../../assets/fotosLooks/macacaoCurto09.png';
-import colecao3 from '../../assets/fotosLooks/topCalca09.png';
 
 const Colecoes = () => {
   const phoneNumber = config.whatsapp.numero;
   
+  // Atualizado para usar os caminhos da pasta public/fotosLooks/
   const colecoes = [
-    { id: 1, nome: 'PERFORMANCE', descricao: 'Para treinos intensos', imagem: colecao1 },
-    { id: 2, nome: 'ELITE', descricao: 'Linha premium exclusiva', imagem: colecao2 },
-    { id: 3, nome: 'ESSENTIAL', descricao: 'Essenciais do dia a dia', imagem: colecao3 }
+    { id: 1, nome: 'PERFORMANCE', descricao: 'Para treinos intensos', imagem: '/fotosLooks/shorts06.png' },
+    { id: 2, nome: 'ELITE', descricao: 'Linha premium exclusiva', imagem: '/fotosLooks/macacaoCurto09.png' },
+    { id: 3, nome: 'ESSENTIAL', descricao: 'Essenciais do dia a dia', imagem: '/fotosLooks/topCalca09.png' }
   ];
 
   // Função para gerar mensagem do WhatsApp para coleção
@@ -36,7 +34,16 @@ const Colecoes = () => {
         <div className="colecoes-grid">
           {colecoes.map((colecao) => (
             <div key={colecao.id} className="colecao-card">
-              <img src={colecao.imagem} alt={colecao.nome} loading="lazy" className="colecao-image" />
+              <img 
+                src={colecao.imagem} 
+                alt={colecao.nome} 
+                loading="lazy" 
+                className="colecao-image" 
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = "https://via.placeholder.com/400x500?text=Lestti+Company";
+                }}
+              />
               <div className="colecao-content">
                 <h3 className="colecao-nome">{colecao.nome}</h3>
                 <p className="colecao-descricao">{colecao.descricao}</p>
@@ -44,7 +51,7 @@ const Colecoes = () => {
                   className="colecao-btn"
                   onClick={() => handleWhatsAppColecao(colecao)}
                 >
-                  VER COLECÃO
+                  VER COLEÇÃO
                 </button>
               </div>
             </div>

@@ -1,6 +1,5 @@
 import './Lancamentos.css';
 import config from '../../data/config.json';
-import lancamentoImage from '../../assets/fotosLooks/topCalca07.png';
 
 const Lancamentos = () => {
   const phoneNumber = config.whatsapp.numero;
@@ -27,10 +26,13 @@ const Lancamentos = () => {
         </div>
         <div className="lancamentos-banner">
           <img 
-            src={lancamentoImage} 
-            alt="Lançamentos"
+            // AGORA BUSCANDO DA PASTA PUBLIC:
+            // Removida a importação 'lancamentoImage' do topo
+            src="/fotosLooks/topCalca07.png" 
+            alt="Lançamentos Coleção Premium"
             className="banner-background-image"
-            loading='lazy'
+            // Como este é um banner principal, você pode usar 'eager' para carregar mais rápido
+            loading="eager" 
           />
           <div className="banner-content">
             <span className="banner-badge">NOVO</span>

@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import './Hero.css';
 import { Zap, Target, Dumbbell } from 'lucide-react';
-import heroImage from '../../assets/fotosLooks/macacaoCurto08.png';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -99,10 +98,16 @@ const Hero = () => {
 
         <div className="hero-image">
           <img
-            src={heroImage}
+            // AGORA BUSCANDO DA PASTA PUBLIC:
+            src="/fotosLooks/macacaoCurto08.png"
             alt="Treino com estilo - Conjunto fitness branco Lestti Company"
             className="hero-main-image"
+            // Mantido eager para priorizar o carregamento no topo
             loading="eager"
+            onError={(e) => {
+              e.target.onerror = null;
+              e.target.src = "https://via.placeholder.com/600x800?text=Lestti+Company";
+            }}
           />
 
           {/* Badge "NOVO" */}
