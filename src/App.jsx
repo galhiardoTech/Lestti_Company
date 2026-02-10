@@ -1,5 +1,5 @@
 import './App.css'
-import Home from './screens/home.jsx'
+import Home from './screens/Home.jsx'
 import { BrowserRouter, Routes, Route } from "react-router";
 import TelaProduto from './screens/TelaProduto.jsx';
 import { useParams } from "react-router";
