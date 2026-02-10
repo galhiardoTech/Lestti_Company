@@ -1,0 +1,6 @@
+# Permite que todos os robôs acessem o site
+User-agent: *
+Allow: /
+
+# Indica onde está o mapa do seu site
+Sitemap: https://www.lestticompany.com.br/sitemap.xml
