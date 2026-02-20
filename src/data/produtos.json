@@ -2,7 +2,7 @@
   {
     "id": 1,
     "nome": "Conjunto top/calça Run",
-    "preco": "R$ 99,90",
+    "preco": "R$ 78,90",
     "capa": "topCalca01.png",
     "imagens": [
       "topCalca01.png",
@@ -21,7 +21,7 @@
   {
     "id": 2,
     "nome": "Conjunto top/shorts Run",
-    "preco": "R$ 84,90",
+    "preco": "R$ 78,90",
     "capa": "topShorts01.png",
     "imagens": [
       "topShorts01.png",
@@ -40,7 +40,7 @@
   {
     "id": 3,
     "nome": "Legging Empina Bumbum",
-    "preco": "R$ 49,90",
+    "preco": "R$ 39,90",
     "capa": "shorts01.png",
     "imagens": [
       "shorts01.png",
@@ -57,7 +57,7 @@
   {
     "id": 4,
     "nome": "Macacão curto Run",
-    "preco": "R$ 69,90",
+    "preco": "R$ 64,90",
     "capa": "macacaoCurto01.png",
     "imagens": [
       "macacaoCurto01.png",
@@ -75,7 +75,7 @@
   {
     "id": 5,
     "nome": "Macacão longo Run",
-    "preco": "R$ 79,90",
+    "preco": "R$ 74,90",
     "capa": "macacaoLongo01.png",
     "imagens": [
       "macacaoLongo01.png",

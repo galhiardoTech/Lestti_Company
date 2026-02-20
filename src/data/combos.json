@@ -1,45 +1,45 @@
 [
-    {
-      "id": 1,
-      "nome": "KIT VERÃO LESTTI",
-      "itens": [
-        "Macacão Curto",
-        "Legging Empina Bumbum"
-      ],
-      "preco": "R$ 109,90",
-      "precoOriginal": "R$ 119,80",
-      "desconto": "8% OFF",
-      "popular": false,
-      "imagem": "shortsEMacacao01.png",
-      "economia": "Economize R$ 9,90"
-    },
-    {
-      "id": 2,
-      "nome": "COMBO DUPLA IMBATÍVEL",
-      "itens": [
-        "Conjunto Top + Calça",
-        "Conjunto Top + Shorts"
-      ],
-      "preco": "R$ 169,90",
-      "precoOriginal": "R$ 184,80",
-      "desconto": "10% OFF",
-      "popular": true,
-      "imagem": "topCalcaETopShorts01.png",
-      "economia": "Economize R$ 14,90"
-    },
-    {
-      "id": 3,
-      "nome": "SUPER PACK PREMIUM",
-      "itens": [
-        "Conjunto Top + Calça",
-        "Macacão Longo",
-        "Legging Empina Bumbum"
-      ],
-      "preco": "R$ 199,90",
-      "precoOriginal": "R$ 229,70",
-      "desconto": "15% OFF",
-      "popular": false,
-      "imagem": "trijunto01.png",
-      "economia": "Economize R$ 29,80"
-    }
-  ]
+  {
+    "id": 1,
+    "nome": "KIT VERÃO LESTTI",
+    "itens": [
+      "Macacão Curto",
+      "Legging Empina Bumbum"
+    ],
+    "preco": "R$ 95,90",
+    "precoOriginal": "R$ 104,80",
+    "desconto": "8% OFF",
+    "popular": false,
+    "imagem": "shortsEMacacao01.png",
+    "economia": "Economize R$ 8,90"
+  },
+  {
+    "id": 2,
+    "nome": "COMBO DUPLA IMBATÍVEL",
+    "itens": [
+      "Conjunto Top + Calça",
+      "Conjunto Top + Shorts"
+    ],
+    "preco": "R$ 141,90",
+    "precoOriginal": "R$ 157,80",
+    "desconto": "10% OFF",
+    "popular": true,
+    "imagem": "topCalcaETopShorts01.png",
+    "economia": "Economize R$ 15,90"
+  },
+  {
+    "id": 3,
+    "nome": "SUPER PACK PREMIUM",
+    "itens": [
+      "Conjunto Top + Calça",
+      "Macacão Longo",
+      "Legging Empina Bumbum"
+    ],
+    "preco": "R$ 164,90",
+    "precoOriginal": "R$ 193,70",
+    "desconto": "15% OFF",
+    "popular": false,
+    "imagem": "trijunto01.png",
+    "economia": "Economize R$ 28,80"
+  }
+]
